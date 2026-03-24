@@ -10,15 +10,17 @@ function maxOfTwoNumbers(a,b) {
 const words = ["mystery", "brother", "aviator", "crocodile", "pearl", "orchard", "crackpot"];
 
 function findLongestWord(words) {
-    let long = null;
-    let cant = 0;
-    words.forEach(word => {
-        if (cant < word.length){
-            cant = word.length;
-            long = word;
-        }
-    });
-    return long;
+    if (words.length >0) return words.reduce((longest, current) => current.length > longest.length ? current : longest,);
+    return null;
+    // let long = null;
+    // let cant = 0;
+    // words.forEach(word => {
+    //     if (cant < word.length){
+    //         cant = word.length;
+    //         long = word;
+    //     }
+    // });
+    // return long;
 
 }
 
@@ -29,7 +31,8 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-    return numbers.reduce((a,b) => a+b,0);
+    if (numbers.length >0) return numbers.reduce((a,b) => a+b,0);
+    return 0;
 }
 
 
@@ -39,8 +42,7 @@ function sumNumbers(numbers) {
 const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
-    let num = numbers.reduce((a,b) => a+b,0);
-    return numbers.length > 0 ? num / numbers.length : 0;
+    return numbers.length > 0 ? numbers.reduce((a,b) => a+b,0) / numbers.length : 0;
 }
 
 
@@ -51,5 +53,5 @@ const words2 = ["machine", "subset", "trouble", "starting", "matter", "eating", 
 
 function doesWordExist(words, word) {
     if (words.length > 0) return words.indexOf(word) >= 0 ? true : false;
-    else return null;
+    return null;
 }
